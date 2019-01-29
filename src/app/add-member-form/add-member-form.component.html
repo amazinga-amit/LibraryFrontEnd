@@ -1,0 +1,40 @@
+<p-dialog [(visible)]="MemPopup">
+  <form [formGroup]="addMemForm" (ngSubmit)="onSubmit()">
+    <!-- <div class="form-group">
+     <label>
+       member_id:
+      <input type="text" formControlName="member_id" required>
+    </label>
+  </div>  -->
+  
+  <div class="form-group">
+    <label>
+      memberName:
+      <input type="text" formControlName="memberName">
+    </label>
+  </div>
+  
+  <div class="form-group">
+    <label>
+      ContactNum:
+      <input type="text" formControlName="contactNum">
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      EmailId:
+      <input type="text" formControlName="emailId">
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      IssuedFlag:
+      <input type="text" formControlName="issuedFlag">
+    </label>
+  </div>
+    <button type="submit" (click) = "onsubmit()" [disabled]="!addMemForm.valid">Submit</button>
+  </form>
+  </p-dialog>
+  
+
+ 

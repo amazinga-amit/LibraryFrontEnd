@@ -1,0 +1,19 @@
+<div class="main-content" >
+    <p-table #dt [value]="readHistoryResult" [columns]="cols" [paginator]="true" [rows]="10" >
+        <ng-template pTemplate="header" >
+          <tr >
+            <th style="background: black; color: white"*ngFor="let col of cols">{{col.header}}</th>
+          <tr>
+            <th *ngFor="let col of cols">
+                <input  pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-readHistoryResult let-columns="cols">
+          <tr >
+            <td *ngFor="let col of cols">{{readHistoryResult[col.field]}} 
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+</div>

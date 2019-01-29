@@ -1,0 +1,27 @@
+<div class="main-content">
+    <p-table #dt [value]="issueResult" [columns]="cols" [paginator]="true" [rows]="10" >
+      <ng-template pTemplate="header" >
+        <tr >
+          <th style="background: black; color: white"*ngFor="let col of cols">{{col.header}}</th>
+          <th style="background: black; color: white"> Requested</th>   
+        </tr>
+        <tr>
+          <th *ngFor="let col of cols">
+              <input  pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-issueResult let-columns="cols">
+        <tr >
+          <td *ngFor="let col of cols">{{issueResult[col.field]}} 
+          </td>
+          <td> 
+          <button type="submit" (click)="handleRequestbook($event)" class="btn btn-default">Request </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+    <app-request-book-form [rqstform] = "rqstform" (onSubmit)="onSubmit($event)"> call the cops </app-request-book-form> 
+    <!-- <app-add-book-form [showPopup] = "showPopup" (onSubmit)="onSubmit2($event)"> call </app-add-book-form>  -->
+  </div>
+  <!-- <app-request-book-form [rqstform] = "rqstform" (onSubmit)="onSubmit($event)" > </app-request-book-form> -->

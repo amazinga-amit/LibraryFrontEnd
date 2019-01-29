@@ -1,0 +1,34 @@
+<p-dialog [(visible)]="rqstform">
+  <form [formGroup]="addrqForm" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+    <label>
+       BookId:
+      <input type="text" formControlName="bookId" required>
+    </label>
+  </div>
+  
+  <div class="form-group">
+    <label>
+      BookName:
+      <input type="text" formControlName="bookName">
+    </label>
+  </div>
+  
+  <div class="form-group">
+    <label>
+      MemberId:
+      <input type="text" formControlName="memberId" required>
+    </label>
+  </div>
+  <div class="form-group"> 
+    <label>
+      MemberName:
+      <input type="text" formControlName="memberName">
+    </label>
+  </div>
+    <button type="submit" (click) = "submit()" [disabled]="!addrqForm.valid">Submit</button>
+  </form>
+  </p-dialog>
+  
+
+ 

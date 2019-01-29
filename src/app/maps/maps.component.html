@@ -1,0 +1,26 @@
+ <div class="main-content">
+    <p-table #dt [value]="excelResult" [columns]="cols" [paginator]="true" [rows]="10" >
+        <ng-template pTemplate="header" >
+          <tr >
+            <th style="background: black; color: white"*ngFor="let col of cols">{{col.header}}</th>
+          </tr>
+          <tr>
+            <th *ngFor="let col of cols">
+                <input  pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-excelResult let-columns="cols">
+          <tr >
+            <td *ngFor="let col of cols">{{excelResult[col.field]}}</td>
+          </tr>
+        </ng-template>
+      </p-table> 
+</div> 
+<div class="btns">
+    <button type="submit" (click)="handleAddBook($event)" class="btn btn-default">Add Book</button>
+    <button type="submit" (click)="handleDeletebook()" class="btn btn-default">Delete</button>
+</div>
+<app-add-book-form [showPopup] = "showPopup" (onSubmit)="onSubmit($event)"> </app-add-book-form> 
+
+

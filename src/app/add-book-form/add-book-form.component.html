@@ -1,0 +1,34 @@
+<p-dialog [(visible)]="showPopup">
+  <form [formGroup]="addBkForm" (ngSubmit)="onSubmit()" >
+    <!-- <div class="form-group">
+    <label>
+       BookId:
+      <input type="text" formControlName="bookID" required>
+    </label>
+  </div> -->
+  
+  <div class="form-group">
+    <label>
+      BookName:
+      <input type="text" formControlName="bookName">
+    </label>
+  </div>
+  
+  <div class="form-group">
+    <label>
+      BookAddDate:
+      <input type="date" formControlName="bookAddDate">
+    </label>
+  </div>
+  <div class="form-group">
+    <label>
+      Availability:
+      <input type="text" formControlName="bookAvailFlag">
+    </label>
+  </div>
+    <button type="submit" (click) = "onsubmit()" [disabled]="!addBkForm.valid">Submit</button>
+  </form>
+  </p-dialog>
+  
+
+ 
